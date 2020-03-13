@@ -48,6 +48,7 @@ class _CalculatorState extends State<Calculator> {
                 maxLines: 1,
                 textAlign: TextAlign.end,
                 style: TextStyle(
+                  fontFamily: 'Calculator',
                   fontWeight: FontWeight.w200,
                   decoration: TextDecoration.none,
                   fontSize: 80.0,

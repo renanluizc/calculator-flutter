@@ -15,6 +15,7 @@ class Memory {
       _setOperation(command);
     } else {
       _addDigit(command);
+      
     }
   }
 
