@@ -19,38 +19,37 @@ class Memory {
   }
 
   _setOperation(String operation) {
-    if (_operationUsed && operation != '=') {
-      _operation = operation;
-      return;
-    }
+    if (_operationUsed && operation == _operation) return;
 
     if (_bufferIndex == 0) {
-      _buffer[0] = double.parse(result);
-      _bufferIndex++;
+      _bufferIndex = 1;
     } else {
-      if (operation == '=' && _buffer[1] == 0) {
-        _buffer[1] = double.parse(result);
-      } else if (operation != '=') {
-        _buffer[1] = double.parse(result);
-      }
       _buffer[0] = _calculate();
-      var temp = _buffer[0].toString();
-      result = temp.endsWith('.0') ? temp.replaceAll('.0', '') : temp;
     }
 
-    if (_operation != '=') _operation = operation;
+    if (operation != '=') _operation = operation;
 
-    print('${_buffer[0]} $operation ${_buffer[1]}');
+    result = _buffer[0].toString();
+    result = result.endsWith('.0') ? result.split('.')[0] : result;
 
     _operationUsed = true;
   }
 
   _calculate() {
-    if (_operation == '%') return _buffer[0] % _buffer[1];
-    if (_operation == '/') return _buffer[0] / _buffer[1];
-    if (_operation == 'x') return _buffer[0] * _buffer[1];
-    if (_operation == '+') return _buffer[0] + _buffer[1];
-    if (_operation == '-') return _buffer[0] - _buffer[1];
+    switch (_operation) {
+      case '%':
+        return _buffer[0] % _buffer[1];
+      case '÷':
+        return _buffer[0] / _buffer[1];
+      case 'x':
+        return _buffer[0] * _buffer[1];
+      case '+':
+        return _buffer[0] + _buffer[1];
+      case '-':
+        return _buffer[0] - _buffer[1];
+      default:
+        return 0.0;
+    }
   }
 
   _addDigit(String digit) {
@@ -65,6 +64,8 @@ class Memory {
     }
 
     result += digit;
+
+    _buffer[_bufferIndex] = double.tryParse(result);
     _operationUsed = false;
   }
 
@@ -72,6 +73,10 @@ class Memory {
     result = result.length > 1 ? result.substring(0, result.length - 1) : '0';
   }
 
+  Memory() {
+    _clear();
+  }
+  
   _clear() {
     result = '0';
     _bufferIndex = 0;
