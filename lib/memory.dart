@@ -1,5 +1,5 @@
 class Memory {
-  static const operations = ['%', '/', 'x', '+', '-', '='];
+  static const operations = ['%', '÷', 'x', '+', '-', '='];
   String result = '0';
   bool _operationUsed = false;
   final _buffer = [0.0, 0.0];
@@ -24,6 +24,10 @@ class Memory {
 
     if (_bufferIndex == 0) {
       _bufferIndex = 1;
+
+      if (operation == '=')
+        _operation = operation;
+
     } else {
       _buffer[0] = _calculate();
     }
@@ -72,6 +76,7 @@ class Memory {
 
   _deleteEndDigit() {
     result = result.length > 1 ? result.substring(0, result.length - 1) : '0';
+    _buffer[_bufferIndex] = double.tryParse(result);
   }
 
   Memory() {

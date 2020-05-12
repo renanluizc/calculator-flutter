@@ -14,7 +14,7 @@ class _CalculatorState extends State<Calculator> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Calculadora'),
+        title: Text('CALCULADORA'),
         backgroundColor: Colors.black,
       ),
       body: Column(
@@ -76,7 +76,7 @@ class _CalculatorState extends State<Calculator> {
                 _buildButton('AC', textColor: Colors.deepOrange),
                 _buildButton('DEL', textColor: Colors.deepOrange),
                 _buildButton('%', textColor: Colors.deepOrange),
-                _buildButton('/', textColor: Colors.deepOrange),
+                _buildButton('÷', textColor: Colors.deepOrange),
               ],
             ),
           ),
