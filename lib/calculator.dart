@@ -1,6 +1,7 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:calculadora/memory.dart';
 import 'package:flutter/material.dart';
+import 'package:share/share.dart';
 
 class Calculator extends StatefulWidget {
   @override
@@ -13,10 +14,7 @@ class _CalculatorState extends State<Calculator> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('CALCULADORA'),
-        backgroundColor: Colors.black,
-      ),
+      appBar: _buildAppBar(),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
@@ -59,6 +57,21 @@ class _CalculatorState extends State<Calculator> {
           ],
         ),
       ),
+    );
+  }
+
+  _buildAppBar() {
+    return AppBar(
+      title: Text('CALCULADORA'),
+      backgroundColor: Colors.black,
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.share, color: Colors.white), 
+          onPressed: (){
+            Share();
+          },
+        ),
+      ],
     );
   }
 
