@@ -68,7 +68,7 @@ class _CalculatorState extends State<Calculator> {
         IconButton(
           icon: Icon(Icons.share, color: Colors.white), 
           onPressed: (){
-            Share();
+            Share.share('Meu app');
           },
         ),
       ],
