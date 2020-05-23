@@ -40,6 +40,23 @@ class _CalculatorState extends State<Calculator> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: AutoSizeText(
+                memory.result, // <-- mudar aqui
+                minFontSize: 20.0,
+                maxFontSize: 30.0,
+                maxLines: 1,
+                textAlign: TextAlign.end,
+                style: TextStyle(
+                  fontFamily: 'Calculator',
+                  fontWeight: FontWeight.w200,
+                  decoration: TextDecoration.none,
+                  fontSize: 30.0,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: AutoSizeText(
                 memory.result,
                 minFontSize: 20.0,
                 maxFontSize: 80.0,

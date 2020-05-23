@@ -15,7 +15,6 @@ class Memory {
       _setOperation(command);
     } else {
       _addDigit(command);
-      
     }
   }
 
@@ -25,9 +24,7 @@ class Memory {
     if (_bufferIndex == 0) {
       _bufferIndex = 1;
 
-      if (operation == '=')
-        _operation = operation;
-
+      if (operation == '=') _operation = operation;
     } else {
       _buffer[0] = _calculate();
     }
@@ -82,7 +79,7 @@ class Memory {
   Memory() {
     _clear();
   }
-  
+
   _clear() {
     result = '0';
     _bufferIndex = 0;
