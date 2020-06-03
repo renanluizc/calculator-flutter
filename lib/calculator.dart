@@ -10,6 +10,7 @@ class Calculator extends StatefulWidget {
 
 class _CalculatorState extends State<Calculator> {
   final _memory = Memory();
+  // VAR HERE
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class _CalculatorState extends State<Calculator> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Text(
-              
+              //CODE HERE
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
@@ -164,6 +165,7 @@ class _CalculatorState extends State<Calculator> {
         ),
         onPressed: () {
           setState(() {
+            // CODE HERE
             _memory.applyCommand(label);
           });
         },
