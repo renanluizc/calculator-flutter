@@ -9,7 +9,7 @@ class Calculator extends StatefulWidget {
 }
 
 class _CalculatorState extends State<Calculator> {
-  final memory = Memory();
+  final _memory = Memory();
 
   @override
   Widget build(BuildContext context) {
@@ -37,27 +37,13 @@ class _CalculatorState extends State<Calculator> {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: AutoSizeText(
-                memory.result, // <-- mudar aqui
-                minFontSize: 20.0,
-                maxFontSize: 30.0,
-                maxLines: 1,
-                textAlign: TextAlign.end,
-                style: TextStyle(
-                  fontFamily: 'Calculator',
-                  fontWeight: FontWeight.w200,
-                  decoration: TextDecoration.none,
-                  fontSize: 30.0,
-                  color: Colors.white,
-                ),
-              ),
+            Text(
+              
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: AutoSizeText(
-                memory.result,
+                _memory.result,
                 minFontSize: 20.0,
                 maxFontSize: 80.0,
                 maxLines: 1,
@@ -178,7 +164,7 @@ class _CalculatorState extends State<Calculator> {
         ),
         onPressed: () {
           setState(() {
-            memory.applyCommand(label);
+            _memory.applyCommand(label);
           });
         },
       ),
