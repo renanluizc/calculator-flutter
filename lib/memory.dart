@@ -5,6 +5,7 @@ class Memory {
   final _buffer = [0.0, 0.0];
   int _bufferIndex = 0;
   String _operation;
+  String display = '0';
 
   applyCommand(String command) {
     if (command == 'AC') {
@@ -30,6 +31,8 @@ class Memory {
     }
 
     if (operation != '=') _operation = operation;
+
+    display = _buffer[0].toString() + operation.toString();
 
     result = _buffer[0].toString();
     result = result.endsWith('.0') ? result.split('.')[0] : result;
@@ -66,6 +69,7 @@ class Memory {
     }
 
     result += digit;
+    display += digit;
 
     _buffer[_bufferIndex] = double.tryParse(result);
     _operationUsed = false;
@@ -82,6 +86,7 @@ class Memory {
 
   _clear() {
     result = '0';
+    display = '0';
     _bufferIndex = 0;
     _operationUsed = false;
     _operation = null;
