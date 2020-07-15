@@ -5,7 +5,7 @@ class Memory {
   final _buffer = [0.0, 0.0];
   int _bufferIndex = 0;
   String _operation;
-  String display = '0';
+  String display = '';
 
   applyCommand(String command) {
     if (command == 'AC') {
@@ -32,7 +32,7 @@ class Memory {
 
     if (operation != '=') _operation = operation;
 
-    display = _buffer[0].toString() + operation.toString();
+    display += operation;
 
     result = _buffer[0].toString();
     result = result.endsWith('.0') ? result.split('.')[0] : result;
@@ -86,7 +86,7 @@ class Memory {
 
   _clear() {
     result = '0';
-    display = '0';
+    display = '';
     _bufferIndex = 0;
     _operationUsed = false;
     _operation = null;
